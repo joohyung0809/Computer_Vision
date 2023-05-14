@@ -15,4 +15,3 @@
     - shortcut을 통해 Vanishing gradient 문제 해결 가능
     - gradiant backpropagation 할 때 지나가는 경우의 수가 2의 n제곱 -> n개의 residual block
 - 구성: 모든 residual block은 2개의 3x3 conv layer 가짐 -> 상대적으로 연산 빠름, block 구조 나누어져 있는데 한 단계가 지나갈 때마다 공간은 2배씩 줄고, 채널 수는 2배씩 늘어남, 최종 출력은 하나의 FC layer
-## Summary of image classification
