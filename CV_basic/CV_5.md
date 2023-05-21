@@ -56,7 +56,7 @@
     - activation map의 해상도 절반씩 줄어듦
     - channel 수는 절반씩 늘어남
 2. Expanding path(upsampling 경로)
-    - activation map의 해상도 절반씩 늘어님
+    - activation map의 해상도 절반씩 늘어남
     - channel 수는 절반씩 줄어듦
 
 ### !> Concatenation of feature maps provides localized information
