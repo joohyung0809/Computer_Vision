@@ -10,7 +10,7 @@
         - Activation Function
         - Post-processing Method(불필요한 Bbox 제거)
 
-- 고려사항
+- 디자인 고려사항
     - 작은 물체를 검출하기 위해 큰 네트워크 입력 사이즈 필요
     - 네트워크 입력 사이즈가 증가함으로써 큰 receptive field 필요 -> 많은 layer 필요
     - 하나의 이미지로 다양한 사이즈의 물체 검출하기 위해 모델의 용량이 더 커야 함 -> 많은 파라미터 필요
@@ -19,7 +19,24 @@
 ### YOLO v4 architecture
 - darknet에 cross stage partial 적용
     - 기존 densenet 문제는 가중치 업데이트 할 때 gradient 정보가 재사용
+- Cross Stage Partial Network(CSPNet) 사용
+    - 정확도 유지하면서 경량화
+    - 메모리 cost 감소
+    - 다양한 backbone에서 사용가능
+    - 연산 bottleneck 제거
 ---
-
+### CSPNet 구조
+- 기존 densenet과 달리 input feature map의 일부만 가지고 concat하고 마지막 layer에서 나머지 concat함
+- 이를 통해 backward 과정에서 gradient information 많아지는 것을 방지하는 효과
+---
+### YOLO v4의 additional improvements
+- 새로운 data augmentation
+    - mosaic: training image 4장을 한 이미지로 만듦
+        - 한 input으로 4개 이미지 들어가서 batch size 커지고, 작은 batch size로도 학습 잘 됨
+    - self-Adversarial Training(SAT): 
+- 기존 방법 변형
+    - modified SAM
+    - modified PAN
+    - cross mini-Batch Normalization (CmBN)
 ### M2Det
 ### CornerNet
